@@ -12,5 +12,10 @@ class LeverancierModel extends Model
         return DB::select('CALL SP_GetAllLeveranciers');
     }
 
+    public function sp_GetLeverancierById($id)
+    {
+        return DB::select('CALL sp_GetLeverancierById(:id)',
+        ['id' => $id]);
+    }
 
 }

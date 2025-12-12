@@ -11,36 +11,34 @@
 <body>
     <div class="container">
 
-        <h1>Geleverde producten</h1>
+        <h1>Leerancier Overzicht</h1>
 
         <h4>Naam leverancier: {{ $data[0]->LeverancierNaam ?? '' }}</h4>
-        <h4>Contactpersoon: {{ $data[0]->ContactPersoon ?? '' }}</h4>
+        <h4>Contactpersoon leverancier: {{ $data[0]->ContactPersoon ?? '' }}</h4>
         <h4>Leverancier nummer: {{ $data[0]->LeverancierNummer ?? '' }}</h4>
         <h4>Mobiel: {{ $data[0]->Mobiel ?? '' }}</h4>
 
         <table class='table'>
             <thead>
                 <th>Naam product</th>
-                <th>Aantal in magazijn</th>
-                <th>Verpakkingseenheid</th>
-                <th>Laatste levering</th>
-                <th>Nieuwe levering</th>
+                <th>Datum laatste levering</th>
+                <th>Aantal</th>
+                <th>Eerstvolgende levering</th>
             </thead>
             <tbody>
-                @if ($data != [])
+                @if (!is_null($data[0]->AantalAanwezig))
                     @foreach ($data as $leverancier)
                         <tr>
                             <td>{{ $leverancier->ProductNaam }}</td>
-                            <td>{{ $leverancier->AantalAanwezig ?? '0' }}</td>
-                            <td>{{ $leverancier->VerpakkingsEenheid }}</td>
-                            <td>{{ $leverancier->DatumLaatsteLevering }}</td>
-                            <td></td>
+                            <td>{{ $leverancier->DatumLevering }}</td>
+                            <td>{{ $leverancier->Aantal }}</td>
+                            <td>{{ $leverancier->DatumEerstvolgendeLevering }}</td>
                         </tr>
                     @endforeach
                 @else
                     <tr>
-                        <td>Dit bedrijf heeft tot nu toe geen producten geleverd aan Jamin</td>
-                        <?= header("Refresh: 3 ; url=../leverancier"); ?>
+                        <td>Er is van dit product op dit moment geen voorraad aanwezig, de verwachte eerstvolgende levering is: {{ $data[0]->DatumEerstvolgendeLevering ?? 'onbekend' }}</td>
+                        <?= header("Refresh: 4 ; url=../magazijn"); ?>
                     </tr>
                 @endif
             </tbody>
