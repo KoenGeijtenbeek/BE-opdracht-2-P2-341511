@@ -18,6 +18,7 @@ BEGIN
           ,MGZN.AantalAanwezig
           ,MGZN.VerpakkingsEenheid
           ,MAX(PPLV.DatumLevering) AS DatumLaatsteLevering
+          ,PPLV.IsActief
     FROM Product PRDT
     INNER JOIN ProductPerLeverancier PPLV ON PRDT.Id = PPLV.ProductId
     INNER JOIN Leverancier LVRC ON LVRC.Id = PPLV.LeverancierId

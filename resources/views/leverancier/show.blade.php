@@ -35,9 +35,13 @@
                             <td>{{ $leverancier->VerpakkingsEenheid }}</td>
                             <td>{{ $leverancier->DatumLaatsteLevering }}</td>
                             <td>
-                                <a href="/leverancier/{{ $leverancier->LeverancierId }}/{{ $leverancier->ProductId }}/create">
-                                    <i class="bi bi-plus-lg text-primary"></i>
-                                </a>
+                                @if ($leverancier->IsActief)
+                                    <a href="/leverancier/{{ $leverancier->LeverancierId }}/{{ $leverancier->ProductId }}/create">
+                                        <i class="bi bi-plus-lg text-primary"></i>
+                                    </a>
+                                @else
+                                    Dit product wordt niet meer geproduceerd.
+                                @endif
                             </td>
                         </tr>
                     @endforeach
