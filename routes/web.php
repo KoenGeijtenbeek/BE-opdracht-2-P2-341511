@@ -26,7 +26,7 @@ Route::put('/allergeen/{id}', [AllergeenController::class, 'update'])->name('all
 // allergeen per product
 Route::get('/allergeen/{id}', [MagazijnController::class, 'allergeen'])->name('allergeen.allergeen');
 
-// leverancir per product
+// leverancir per product 
 Route::get('/leverancier/{id}', [MagazijnController::class, 'leverancier'])->name('leverancier.leverancier');
 
 
