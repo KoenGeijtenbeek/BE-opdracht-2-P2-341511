@@ -35,10 +35,12 @@ class LeverancierController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($leverancierId, $productId)
     {
         return view('leverancier.create', [
-            'title' => 'Levering product'
+            'title' => 'Levering product',
+            'leverancierId' => $leverancierId,
+            'productId' => $productId
         ]);
     }
 
@@ -63,7 +65,7 @@ class LeverancierController extends Controller
             $data['datumEerstvolgendeLevering']
         );
 
-        return redirect()->route('leverancier.show') // id meegeven
+        return redirect()->route('leverancier.show', [$data['leverancierId']])
             ->with('success', "Levering is succesvol toegevoegd met id: " . $newId);
     }
 

@@ -29,7 +29,7 @@ class LeverancierModel extends Model
                 'datumEerstvolgendeLevering' => $datumEerstvolgendeLevering
             ]
         );
-        return $row->new_id;
+        
     }
 
 }

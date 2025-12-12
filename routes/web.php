@@ -32,10 +32,11 @@ Route::get('/allergeen/{id}', [MagazijnController::class, 'allergeen'])->name('a
 Route::get('/magazijn/{id}', [MagazijnController::class, 'leverancier'])->name('magazijn.leverancier');
 
 // geleverde producten per leverancier
-Route::get('/leverancier/{id}', [LeverancierController::class, 'show'])->name('leverancier.show');
+Route::get('/leverancier/{leverancierId}', [LeverancierController::class, 'show'])->name('leverancier.show');
 
 // nieuwe levering toevoegen
 Route::get('/leverancier/{leverancierId}/{productId}/create', [LeverancierController::class, 'create'])->name('leverancier.create');
+Route::post('leverancier', [LeverancierController::class, 'store'])->name('leverancier.store');
 
 
 Route::view('dashboard', 'dashboard')
