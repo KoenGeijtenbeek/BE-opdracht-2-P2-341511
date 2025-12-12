@@ -1,0 +1,18 @@
+DROP PROCEDURE IF EXISTS SP_GetAllLeveranciers;
+
+DELIMITER $$
+
+CREATE PROCEDURE SP_GetAllLeveranciers()
+BEGIN
+    SELECT LVRC.Id
+          ,LVRC.Naam
+          ,LVRC.ContactPersoon
+          ,LVRC.LeverancierNummer
+          ,LVRC.Mobiel
+          ,COUNT(DISTINCT PPLV.ProductId) AS VerschillendeProducten
+    FROM Leverancier AS LVRC
+    INNER JOIN ProductPerLeverancier PPLV ON PPLV.LeverancierId = LVRC.Id
+    GROUP BY PPLV.LeverancierId;
+END$$
+
+DELIMITER ;
