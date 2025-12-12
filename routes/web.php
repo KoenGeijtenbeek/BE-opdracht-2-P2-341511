@@ -31,7 +31,7 @@ Route::get('/allergeen/{id}', [MagazijnController::class, 'allergeen'])->name('a
 // leverancir per product 
 Route::get('/magazijn/{id}', [MagazijnController::class, 'leverancier'])->name('magazijn.leverancier');
 
-
+// geleverde producten per leverancier
 Route::get('/leverancier/{id}', [LeverancierController::class, 'show'])->name('leverancier.show');
 
 
