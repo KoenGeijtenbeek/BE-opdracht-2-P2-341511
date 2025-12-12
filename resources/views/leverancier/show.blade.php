@@ -53,6 +53,7 @@
                 @endif
             </tbody>
         </table>
+        <a href="/leverancier">Terug</a>
     </div>
 </body>
 </html>

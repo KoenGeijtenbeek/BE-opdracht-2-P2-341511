@@ -24,7 +24,8 @@ BEGIN
     INNER JOIN Leverancier LVRC ON LVRC.Id = PPLV.LeverancierId
     INNER JOIN Magazijn MGZN ON MGZN.ProductId = PRDT.Id
     WHERE LVRC.Id = p_id
-    GROUP BY PPLV.ProductId;
+    GROUP BY PPLV.ProductId
+    ORDER BY MGZN.AantalAanwezig DESC;
 
 END$$
 
