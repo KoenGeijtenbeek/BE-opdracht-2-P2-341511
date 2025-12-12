@@ -18,4 +18,18 @@ class LeverancierModel extends Model
         ['id' => $id]);
     }
 
+    public function sp_CreateProductPerLeverancier($leverancierId, $productId, $aantal, $datumEerstvolgendeLevering)
+    {
+        $row = DB::statement(
+            'CALL sp_CreateProductPerLeverancier(:leverancierId, :productId, :aantal, :datumEerstvolgendeLevering)',
+            [
+                'leverancierId' => $leverancierId,
+                'productId' => $productId,
+                'aantal' => $aantal,
+                'datumEerstvolgendeLevering' => $datumEerstvolgendeLevering
+            ]
+        );
+        return $row->new_id;
+    }
+
 }

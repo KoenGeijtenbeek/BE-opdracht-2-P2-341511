@@ -37,7 +37,9 @@ class LeverancierController extends Controller
      */
     public function create()
     {
-        //
+        return view('leverancier.create', [
+            'title' => 'Levering product'
+        ]);
     }
 
     /**
@@ -45,7 +47,24 @@ class LeverancierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        $data = $request->validate([
+            'leverancierId' => 'required',
+            'productId' => 'required',
+            'aantal' => 'required',
+            'datumEerstvolgendeLevering' => 'required'
+        ]);
+
+        $newId = $this->leverancierModel->sp_CreateProductPerLeverancier(
+            $data['leverancierId'],
+            $data['productId'],
+            $data['aantal'],
+            $data['datumEerstvolgendeLevering']
+        );
+
+        return redirect()->route('leverancier.show') // id meegeven
+            ->with('success', "Levering is succesvol toegevoegd met id: " . $newId);
     }
 
     /**

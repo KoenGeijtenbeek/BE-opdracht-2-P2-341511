@@ -34,7 +34,8 @@ Route::get('/magazijn/{id}', [MagazijnController::class, 'leverancier'])->name('
 // geleverde producten per leverancier
 Route::get('/leverancier/{id}', [LeverancierController::class, 'show'])->name('leverancier.show');
 
-
+// nieuwe levering toevoegen
+Route::get('/leverancier/{leverancierId}/{productId}/create', [LeverancierController::class, 'create'])->name('leverancier.create');
 
 
 Route::view('dashboard', 'dashboard')

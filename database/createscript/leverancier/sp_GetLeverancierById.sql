@@ -8,7 +8,8 @@ CREATE PROCEDURE sp_GetLeverancierById(
 
 BEGIN
 
-    SELECT LVRC.Id
+    SELECT PRDT.Id AS ProductId
+          ,LVRC.Id AS LeverancierId
           ,LVRC.Naam AS LeverancierNaam
           ,LVRC.ContactPersoon
           ,LVRC.LeverancierNummer
