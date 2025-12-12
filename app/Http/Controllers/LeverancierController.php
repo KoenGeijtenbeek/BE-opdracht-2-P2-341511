@@ -51,9 +51,11 @@ class LeverancierController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(LeverancierModel $leverancierModel)
+    public function show($id)
     {
-        //
+        $data = $this->leverancierModel->sp_GetLeverancierById($id);
+        
+        return view('leverancier.show', ['data' => $data]);
     }
 
     /**

@@ -31,12 +31,14 @@
                         <td>{{ $leverancier->Mobiel }}</td>
                         <td>{{ $leverancier->VerschillendeProducten }}</td>
                         <td>
-                            
+                            <a href="/leverancier/{{ $leverancier->Id }}">
+                                <i class="bi bi-box text-primary"></i>
+                            </a>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td>Geen magazijn gevonden</td>
+                        <td>Geen leveranciers gevonden</td>
                     </tr>
                 @endforelse
             </tbody>

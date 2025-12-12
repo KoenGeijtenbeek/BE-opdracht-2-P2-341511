@@ -30,7 +30,7 @@
                         <td>{{ $magazijn->VerpakkingsEenheid }}</td>
                         <td>{{ $magazijn->AantalAanwezig }}</td>
                         <td>
-                            <a href="/leverancier/{{ $magazijn->ProductId }}">
+                            <a href="/magazijn/{{ $magazijn->ProductId }}">
                                 <i class="bi bi-question-circle-fill text-primary"></i>
                             </a>
                         </td>
