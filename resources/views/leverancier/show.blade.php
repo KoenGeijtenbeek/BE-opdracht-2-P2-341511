@@ -34,7 +34,11 @@
                             <td>{{ $leverancier->AantalAanwezig ?? '0' }}</td>
                             <td>{{ $leverancier->VerpakkingsEenheid }}</td>
                             <td>{{ $leverancier->DatumLaatsteLevering }}</td>
-                            <td></td>
+                            <td>
+                                <a href="/leverancier/{{ $leverancier->Id }}/create">
+                                    <i class="bi bi-plus-lg text-primary"></i>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 @else
